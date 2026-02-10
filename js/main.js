@@ -21,10 +21,7 @@ function visibleDrag() {
 }
 
 function dragOver(e) {
-    itemNumber = this.childNodes.length;
-    if (itemNumber == 0) {
-        e.preventDefault();
-    }
+    e.preventDefault();
 }
 
 function appendDrag() {
