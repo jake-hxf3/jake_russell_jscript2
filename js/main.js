@@ -17,7 +17,10 @@ function dragStart() {
 
 
 function dragOver(e) {
-    e.preventDefault();
+    itemNumber = this.childNodes.length;
+    if (itemNumber == 0) {
+        e.preventDefault();
+    }
 }
 
 function appendDrag() {
