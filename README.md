@@ -5,7 +5,8 @@ This is a project about a quiz website about Human Anatomy, which was used as As
 ## Installation 💻
 No installation required, simply download the zip file and extract. Or simply play the game on your browser.
 ## Usage
-Drag the correct labels to the correct organs.
+Drag the correct labels to the correct organs. Click "Reset" to start over.
+Once you're done, click "Submit" to see your score.
 
 ## Contributing 
 1. Fork it!
