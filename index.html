@@ -2,13 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- We need this tag to properly display our pages at mobile size/make it responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/grid.css" rel="stylesheet" type="text/css">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <title>Document</title>
+    <link href="css/main.css" rel="stylesheet">
+    <title>Human Anatomy Puzzle Game</title>
 </head>
-    <body>
+<body>
+    <header class="centered">
+        <h1>Human Anatomy Quiz</h1> 
+        <p>Drag the labels to the correct organs</p> 
+    </header>
 
-        <script src="js/main.js"></script>
-    </body>
+    <section id="game" class="centered">
+        <h2 class="hidden">Quiz Area</h2>
+        <div id="diagram">
+            <img src="images/body.png" alt="A diagram of the human body with organs to be named">
+        </div>
+        <section id="labels">
+            <h3>Labels</h3>
+            <div draggable="true">Heart</div>
+            <div draggable="true">Lung</div>
+            <div draggable="true">Liver</div>
+            <div draggable="true">Stomach</div>
+            <div draggable="true">Intestines</div>
+            <button>Reset</button>
+        </section>
+    </section>
+    
+    
+    <script src="js/main.js"></script>
+</body>
 </html>
