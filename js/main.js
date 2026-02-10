@@ -21,7 +21,7 @@ function visibleDrag() {
 }
 
 function dragOver(e) {
-    itemNumber = this.childNodes.length;
+    itemNumber = this.childElementCount;
     if (itemNumber == 0) {
         e.preventDefault();
     }
