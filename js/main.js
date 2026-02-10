@@ -21,7 +21,7 @@ function visibleDrag() {
 }
 
 function dragOver(e) {
-    itemNumber = this.childNodes.length;
+    itemNumber = this.childElementCount;
     if (itemNumber == 0) {
         e.preventDefault();
     }
@@ -29,6 +29,14 @@ function dragOver(e) {
 
 function appendDrag() {
     this.appendChild(dragItem);
+    this.classList.remove("bg-drag");
+}
+
+function changeColor(e) {
+    itemNumber = this.childElementCount;
+    if((itemNumber == 0) || (e == "dragleave")){
+        this.classList.toggle("bg-drag");
+    } 
 }
 
 function resetLabels() {
@@ -48,6 +56,8 @@ label.forEach((elem) => {
 dropZone.forEach((elem) => {
     elem.addEventListener("dragover", dragOver);
     elem.addEventListener("drop", appendDrag); 
+    elem.addEventListener("dragenter", changeColor);
+    elem.addEventListener("dragleave", changeColor);
 });
 
 button.addEventListener("click", resetLabels);
