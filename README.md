@@ -1,12 +1,11 @@
-# Project Name
-![insert alt text](images/example.jpg)
+# Human Anatomy Quiz
 
-This is a project about [insert topic].
+This is a project about a quiz website about Human Anatomy, which was used as Assignment #2 of MMED-1055.
 
 ## Installation 💻
-No installation required, simply download the zip file and extract.
+No installation required, simply download the zip file and extract. Or simply play the game on your browser.
 ## Usage
-Open index.html in the browser of your choice and see the website.
+Drag the correct labels to the correct organs.
 
 ## Contributing 
 1. Fork it!
