@@ -21,7 +21,7 @@ function visibleDrag() {
 }
 
 function dragOver(e) {
-    itemNumber = this.childElementCount;
+    let itemNumber = this.childElementCount;
     if (itemNumber == 0) {
         e.preventDefault();
     }
@@ -33,7 +33,7 @@ function appendDrag() {
 }
 
 function changeColor(e) {
-    itemNumber = this.childElementCount;
+    let itemNumber = this.childElementCount;
     if((itemNumber == 0) || (e == "dragleave")){
         this.classList.toggle("bg-drag");
     } 
