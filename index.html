@@ -9,8 +9,8 @@
 </head>
 <body>
     <header class="centered">
-        <h1>Human Anatomy Quiz</h1> 
-        <p>Drag the labels to the correct organs</p> 
+        <h1 id="title">Human Anatomy Quiz</h1> 
+        <p id="inst">Drag the labels to the correct organs</p> 
     </header>
 
     <section id="game" class="centered">
@@ -23,15 +23,19 @@
             <div id="stomach"></div>
             <div id="intestines"></div>
         </div>
-        <section id="labels" class="centered">
+        <section id="label-con" class="centered">
             <h3>Labels</h3>
-            <div draggable="true" class="label-title">Heart</div>
-            <div draggable="true" class="label-title">Lung</div>
-            <div draggable="true" class="label-title">Liver</div>
-            <div draggable="true" class="label-title">Stomach</div>
-            <div draggable="true" class="label-title">Intestines</div>
-            <button id="reset-btn">Reset</button>
-            <button id="submit-btn">Submit</button>
+            <button id="reset-btn" class="small-btn">Reset</button>             
+
+            <div id="labels">
+                <div draggable="true" class="label-title">Heart</div>
+                <div draggable="true" class="label-title">Lung</div>
+                <div draggable="true" class="label-title">Liver</div>
+                <div draggable="true" class="label-title">Stomach</div>
+                <div draggable="true" class="label-title">Intestines</div>
+            </div>
+
+             <button id="submit-btn" class="hidden big-btn">Submit</button>   
         </section>
     </section>
     
