@@ -55,7 +55,7 @@ label.forEach((elem) => {
 
 dropZone.forEach((elem) => {
     elem.addEventListener("dragover", dragOver);
-    elem.addEventListener("drop", appendDrag); 
+    elem.addEventListener("drop", appendDrag);
     elem.addEventListener("dragenter", changeColor);
     elem.addEventListener("dragleave", changeColor);
 });
