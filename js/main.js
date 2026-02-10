@@ -13,8 +13,12 @@ console.log(label);
 // functions
 function dragStart() {
    dragItem = this;
+   setTimeout(visibleDrag, 0);
 }
 
+function visibleDrag() {
+    dragItem.classList.toggle("no-display");
+}
 
 function dragOver(e) {
     itemNumber = this.childNodes.length;
@@ -29,7 +33,8 @@ function appendDrag() {
 
 // Event Listener
 label.forEach((elem) => {
-    elem.addEventListener("dragstart", dragStart); 
+    elem.addEventListener("dragstart", dragStart);
+    elem.addEventListener("dragend", visibleDrag);    
 });
 
 dropZone.forEach((elem) => {
