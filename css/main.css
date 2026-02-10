@@ -8,8 +8,17 @@ body {
     display: none;
 }
 
+.no-display {
+    visibility: hidden;
+    position: fixed;
+}
+
 .centered {
     margin: 0 auto;
+}
+
+.bg-drag {
+    background-color: rgba(255, 0, 80, 0.7);
 }
 
 /* Header & Game Area */
@@ -36,7 +45,10 @@ header {
 
 #diagram > div {
     position: absolute;
-    background-color: red;
+    /*background-color: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     z-index: 2;
 }
@@ -87,14 +99,16 @@ header {
 
 #labels h3 {
     grid-column: 1/-1;
+    order: -1;
     margin: 0;
 }
 
-#labels > div {
+.label-title {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(0, 128, 255);
+    padding: 5px;
     font-size: 20px;
     color: white;
     border: 2px solid white;
@@ -104,9 +118,10 @@ header {
     user-select: none; /* Standard syntax */
 }
 
-#labels > div:hover {
+.label-title:hover {
     background-color: rgb(0, 102, 204);
 }
+
 
 button {
     grid-column: 1/-1;
@@ -114,11 +129,13 @@ button {
     border-radius: 5px;
     width: 200px;
     font-size: 20px;
+    max-height: 50px;
     margin: 10px auto 0;
     background-color: rgb(255, 148, 0);
     color: white;
     text-transform: uppercase;
     cursor: pointer;
+    order: 10;
 }
 
 button:hover {
@@ -136,10 +153,6 @@ button:hover {
         grid-column: 2/3;
         grid-row: 1/-1;
         padding-bottom: 70%;
-    }
-
-    #labels > div {
-        grid-column: 1/-1;
     }
 
 }
