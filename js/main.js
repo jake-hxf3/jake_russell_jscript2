@@ -31,6 +31,14 @@ function appendDrag() {
     this.appendChild(dragItem);
 }
 
+function resetLabels() {
+    const diagLabel = document.querySelectorAll("#diagram .label-title");
+    console.log(labelZone);
+    diagLabel.forEach((elem) => {
+        labelZone.appendChild(elem);
+    })
+}
+
 // Event Listener
 label.forEach((elem) => {
     elem.addEventListener("dragstart", dragStart);
@@ -41,3 +49,5 @@ dropZone.forEach((elem) => {
     elem.addEventListener("dragover", dragOver);
     elem.addEventListener("drop", appendDrag); 
 });
+
+button.addEventListener("click", resetLabels);
