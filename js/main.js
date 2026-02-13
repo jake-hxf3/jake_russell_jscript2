@@ -78,19 +78,19 @@ function gameFunc(){
         let labelName = elem.firstElementChild.textContent.toLowerCase();
 
         if(organName === labelName) {
-            score += 20;
+            score += 1;
         }        
     })
 
     submit.classList.add("hidden"); 
 
-    inst.textContent = `Your score: ${score}/100`;
+    inst.textContent = `Correct labels: ${score}/5`;
 
-    if(score >= 100){
+    if(score >= label.length){
         title.textContent = "You Won!";
     }
 
-    if(score < 100){
+    if(score < label.length){
         title.textContent = "Try again.";
     }  
 }
