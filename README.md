@@ -11,6 +11,13 @@ Click "Reset" to start over.
 
 Once you're done, click "Submit" to see your score.
 
+## Branches
+* `js-basic`:  simple drag-drop JavaScript
+* `js-v1`: solution to the first problem. This allows only one label per drop zone
+* `js-v2`: solution to the second problem. The reset button is functional.
+* `js-v3`: the drop zones are now highlighted on dragenter.
+* `real-quiz`: webpage with quiz and scores.
+
 ## Contributing 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -21,7 +28,6 @@ Once you're done, click "Submit" to see your score.
 ## History
 TODO: Write history
 ß
-## Credits
-Russell
+
 ## License
 MIT License
