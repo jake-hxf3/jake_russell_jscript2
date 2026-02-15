@@ -84,7 +84,7 @@ function gameFunc(){
 
     submit.classList.add("hidden"); 
 
-    inst.textContent = `Correct labels: ${score}/5`;
+    inst.textContent = `You got ${score}/5 labels correct.`;
 
     if(score >= label.length){
         title.textContent = "You Won!";
