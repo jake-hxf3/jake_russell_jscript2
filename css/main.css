@@ -21,6 +21,10 @@ body {
     background-color: rgba(255, 0, 80, 0.7);
 }
 
+.label-inc {
+    background-color: rgb(85, 85, 85) !important;
+}
+
 /* Header & Game Area */
 header {
     max-width: 900px;
