@@ -61,6 +61,7 @@ function resetLabels() {
     inst.textContent = instText;
 
     diagLabel.forEach((elem) => {
+        elem.classList.remove("label-inc");
         labelZone.appendChild(elem);
     })
 }
@@ -73,15 +74,7 @@ function showSubmit() {
 }
 
 function gameFunc(){
-    dropZone.forEach((elem) =>{
-        let organName = elem.id;
-        let labelName = elem.firstElementChild.textContent.toLowerCase();
-
-        if(organName === labelName) {
-            score += 1;
-        }        
-    })
-
+    scoringFunc();
     submit.classList.add("hidden"); 
 
     inst.textContent = `You got ${score}/5 labels correct.`;
@@ -93,6 +86,20 @@ function gameFunc(){
     if(score < label.length){
         title.textContent = "Try again.";
     }  
+}
+
+function scoringFunc() {
+    dropZone.forEach((elem) =>{
+        let organName = elem.id;
+        let organLabel = elem.firstElementChild;
+        let labelName = organLabel.textContent.toLowerCase();
+
+        if(organName === labelName) {
+            score += 1;
+        } else {
+            organLabel.classList.add("label-inc");
+        }    
+    })
 }
 
 // Event Listener
