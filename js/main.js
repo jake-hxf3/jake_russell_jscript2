@@ -20,15 +20,19 @@ console.log(dropZone);
 console.log(label);
 
 // functions
+
+// assigns element to global var once drag event starts
 function dragStart() {
    dragItem = this;
    setTimeout(visibleDrag, 0);
 }
 
+// hide the element in the starting zone when it is dragged
 function visibleDrag() {
     dragItem.classList.toggle("no-display");
 }
 
+// makes element drop possible but only when the drop zone is empty
 function dragOver(e) {
     let itemNumber = this.childElementCount;
     if (itemNumber == 0) {
@@ -36,11 +40,13 @@ function dragOver(e) {
     }
 }
 
+// attaches the dragged element into a drop zone and removes highlight
 function appendDrag() {
     this.appendChild(dragItem);
     this.classList.remove("bg-drag");
 }
 
+// adds highlight to a drop zone when a draggable element enters it
 function changeColor(e) {
     let itemNumber = this.childElementCount;
     if((itemNumber == 0) || (e == "dragleave")){
@@ -48,6 +54,7 @@ function changeColor(e) {
     } 
 }
 
+// resets game: puts the elements back to start & reverts all style changes
 function resetLabels() {
     const diagLabel = document.querySelectorAll("#diagram .label-title");
     this.classList.add("small-btn");
@@ -63,6 +70,7 @@ function resetLabels() {
     })
 }
 
+// show submit button when all labels are dropped into the diagram
 function showSubmit() {
     remLabel = labelZone.firstElementChild;
     if(remLabel == null) {
@@ -71,6 +79,7 @@ function showSubmit() {
     }
 }
 
+// submit button: change texts to notify player and hides itself once it's clicked
 function gameFunc(){
     scoringFunc();
     submit.classList.add("hidden"); 
@@ -86,6 +95,7 @@ function gameFunc(){
     }  
 }
 
+// determines correct labels and calculates player's score
 function scoringFunc() {
     dropZone.forEach((elem) =>{
         let organName = elem.id;
