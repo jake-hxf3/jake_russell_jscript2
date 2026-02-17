@@ -13,7 +13,6 @@ const inst = document.querySelector("#inst");
 const titleText = title.textContent;
 const instText = inst.textContent;
 
-let diagCount = 0;
 let dragItem = null;
 let score = 0;
 
@@ -40,7 +39,6 @@ function dragOver(e) {
 function appendDrag() {
     this.appendChild(dragItem);
     this.classList.remove("bg-drag");
-    diagCount += 1;
 }
 
 function changeColor(e) {
@@ -55,7 +53,6 @@ function resetLabels() {
     this.classList.add("small-btn");
     submit.classList.add("hidden");
 
-    diagCount = 0;
     score = 0;
     title.textContent = titleText;
     inst.textContent = instText;
@@ -67,7 +64,8 @@ function resetLabels() {
 }
 
 function showSubmit() {
-    if(diagCount == label.length) {
+    remLabel = labelZone.firstElementChild;
+    if(remLabel == null) {
         reset.classList.remove("small-btn"); 
         submit.classList.remove("hidden");
     }
