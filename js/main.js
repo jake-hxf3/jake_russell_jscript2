@@ -1,7 +1,7 @@
 console.log("JavaScript File is linked");
 
 // variables
-const dropZone = document.querySelectorAll("#diagram > div");
+const dropZone = document.querySelectorAll(".target-zone");
 const label = document.querySelectorAll(".label-title");
 const labelZone = document.querySelector("#labels");
 
@@ -32,18 +32,38 @@ function visibleDrag() {
     dragItem.classList.toggle("no-display");
 }
 
-// makes element drop possible but only when the drop zone is empty
+// makes element drop possible
 function dragOver(e) {
+    console.log("dragover called, they want their drop behavior back");
+    e.preventDefault();
+}
+// we can also check if the drop zone is empty here
+/* function dragOver(e) {
     let itemNumber = this.childElementCount;
     if (itemNumber == 0) {
         e.preventDefault();
     }
-}
+} */
 
 // attaches the dragged element into a drop zone and removes highlight
-function appendDrag() {
+function appendDrag(e) {
+    e.preventDefault();
+
+    //prevents double drops if there is already a label
+    if(this.firstElementChild) {
+        return;
+    }
+
     this.appendChild(dragItem);
     this.classList.remove("bg-drag");
+    console.log("dropped");
+
+
+    // show submit button when all labels are dropped into the diagram
+    if(labelZone.firstElementChild) return;
+    
+    reset.classList.remove("small-btn"); 
+    submit.classList.remove("hidden");
 }
 
 // adds highlight to a drop zone when a draggable element enters it
@@ -56,28 +76,25 @@ function changeColor(e) {
 
 // resets game: puts the elements back to start & reverts all style changes
 function resetLabels() {
-    const diagLabel = document.querySelectorAll("#diagram .label-title");
+    console.log("reset button clicked");
     this.classList.add("small-btn");
     submit.classList.add("hidden");
 
     score = 0;
     title.textContent = titleText;
-    inst.textContent = instText;
+    inst.textContent = instText; 
 
-    diagLabel.forEach((elem) => {
-        elem.classList.remove("label-inc");
-        labelZone.appendChild(elem);
+    dropZone.forEach((elem) => {
+        let zoneLabel = elem.firstElementChild;
+        if (zoneLabel) {
+            zoneLabel.classList.remove("label-inc");
+            labelZone.appendChild(zoneLabel);            
+        }
+
     })
 }
 
-// show submit button when all labels are dropped into the diagram
-function showSubmit() {
-    remLabel = labelZone.firstElementChild;
-    if(remLabel == null) {
-        reset.classList.remove("small-btn"); 
-        submit.classList.remove("hidden");
-    }
-}
+
 
 // submit button: change texts to notify player and hides itself once it's clicked
 function gameFunc(){
@@ -91,7 +108,7 @@ function gameFunc(){
     }
 
     if(score < label.length){
-        title.textContent = "Try again.";
+        title.textContent = "Puzzle Over";
     }  
 }
 
@@ -119,7 +136,6 @@ label.forEach((elem) => {
 dropZone.forEach((elem) => {
     elem.addEventListener("dragover", dragOver);
     elem.addEventListener("drop", appendDrag);
-    elem.addEventListener("drop", showSubmit);
     elem.addEventListener("dragenter", changeColor);
     elem.addEventListener("dragleave", changeColor);
 });

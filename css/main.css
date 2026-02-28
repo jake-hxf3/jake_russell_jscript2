@@ -23,6 +23,7 @@ body {
 
 .label-inc {
     background-color: rgb(85, 85, 85) !important;
+    border: 2px solid white;
 }
 
 /* Header & Game Area */
@@ -47,7 +48,7 @@ header {
     max-width: 100%;
 }
 
-#diagram > div {
+.target-zone {
     position: absolute;
     /*background-color: red;*/
     display: flex;
@@ -119,6 +120,10 @@ header {
     margin: 5px;
 }
 
+#labels .label-title:hover {
+    transform: translateY(-2px);
+}
+
 .label-title {
     display: flex;
     justify-content: center;
@@ -126,20 +131,28 @@ header {
     min-width: 84px;
     max-height: 42px;
     background-color: rgb(0, 128, 255);
+    border-radius: 5px;
     padding: 5px;
     font-size: 20px;
     text-align: center;
     color: white;
-    border: 2px solid white;
-    cursor: pointer;
+    cursor: grab;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    transition: 0.2s background-color linear;
+    transition: 0.2s transform linear;
 }
 
 .label-title:hover {
     background-color: rgb(0, 102, 204);
 }
+
+.target-zone .label-title {
+    border-radius: 0;
+    border: 2px solid white;
+}
+
 
 
 button {
@@ -154,6 +167,7 @@ button {
     text-transform: uppercase;
     cursor: pointer;
     order: 10;
+    transition: 0.2s background-color linear;
 }
 
 #reset-btn {
