@@ -24,6 +24,7 @@ console.log(label);
 // assigns element to global var once drag event starts
 function dragStart() {
    dragItem = this;
+   console.log(`dragging ${dragItem}`);
    setTimeout(visibleDrag, 0);
 }
 
@@ -37,16 +38,9 @@ function dragOver(e) {
     console.log("dragover called, they want their drop behavior back");
     e.preventDefault();
 }
-// we can also check if the drop zone is empty here
-/* function dragOver(e) {
-    let itemNumber = this.childElementCount;
-    if (itemNumber == 0) {
-        e.preventDefault();
-    }
-} */
 
 // attaches the dragged element into a drop zone and removes highlight
-function appendDrag(e) {
+function dropFunc(e) {
     e.preventDefault();
 
     //prevents double drops if there is already a label
@@ -66,7 +60,8 @@ function appendDrag(e) {
     submit.classList.remove("hidden");
 }
 
-// adds highlight to a drop zone when a draggable element enters it
+// adds highlight to an empty drop zone on dragenter
+// removes it on dragleave
 function changeColor(e) {
     let itemNumber = this.childElementCount;
     if((itemNumber == 0) || (e == "dragleave")){
@@ -74,8 +69,9 @@ function changeColor(e) {
     } 
 }
 
-// resets game: puts the elements back to start & reverts all style changes
-function resetLabels() {
+// resets game: puts the elements back to start
+// reverts all style changes
+function resetGame() {
     console.log("reset button clicked");
     this.classList.add("small-btn");
     submit.classList.add("hidden");
@@ -135,10 +131,10 @@ label.forEach((elem) => {
 
 dropZone.forEach((elem) => {
     elem.addEventListener("dragover", dragOver);
-    elem.addEventListener("drop", appendDrag);
+    elem.addEventListener("drop", dropFunc);
     elem.addEventListener("dragenter", changeColor);
     elem.addEventListener("dragleave", changeColor);
 });
 
-reset.addEventListener("click", resetLabels);
+reset.addEventListener("click", resetGame);
 submit.addEventListener("click", gameFunc);
