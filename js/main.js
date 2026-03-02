@@ -40,7 +40,6 @@ function appendDrag(e) {
 // reverts all style changes
 function resetLabels() {
     console.log("reset button clicked");
-    this.classList.add("small-btn");
 
     dropZone.forEach((elem) => {
         let zoneLabel = elem.firstElementChild;
