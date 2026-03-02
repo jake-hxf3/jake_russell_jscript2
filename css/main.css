@@ -107,6 +107,7 @@ header {
     grid-row: 1/1;
     order: -1;
     margin: 0;
+    text-align: left;
 }
 
 #labels {
@@ -223,7 +224,6 @@ button {
 
     #label-con h3 {
         grid-column: 1/-1;
-        text-align: center;
     }
 
     #labels .label-title {
