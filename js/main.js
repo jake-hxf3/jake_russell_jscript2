@@ -21,17 +21,24 @@ function visibleDrag() {
 }
 
 function dragOver(e) {
-    let itemNumber = this.childElementCount;
-    if (itemNumber == 0) {
-        e.preventDefault();
-    }
+    e.preventDefault();
 }
 
 function appendDrag() {
+    e.preventDefault();
+
+    //prevents double drops if there is already a label
+    if(this.firstElementChild) {
+        return;
+    }
+   
     this.appendChild(dragItem);
     this.classList.remove("bg-drag");
+    console.log("dropped");
 }
 
+// adds highlight to an empty drop zone on dragenter
+// removes it on dragleave
 function changeColor(e) {
     let itemNumber = this.childElementCount;
     if((itemNumber == 0) || (e == "dragleave")){
