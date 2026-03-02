@@ -78,6 +78,7 @@ function resetGame() {
 
     score = 0;
     title.textContent = titleText;
+    title.classList.remove("win-text");
     inst.textContent = instText; 
 
     dropZone.forEach((elem) => {
@@ -101,6 +102,7 @@ function gameFunc(){
 
     if(score >= label.length){
         title.textContent = "You Won!";
+        title.classList.add("win-text");
     }
 
     if(score < label.length){
