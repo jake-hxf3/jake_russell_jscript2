@@ -21,6 +21,11 @@ body {
     background-color: rgba(255, 0, 80, 0.7);
 }
 
+.label-inc {
+    background-color: rgb(85, 85, 85) !important;
+    border: 2px solid white;
+}
+
 /* Header & Game Area */
 header {
     max-width: 900px;
@@ -43,7 +48,7 @@ header {
     max-width: 100%;
 }
 
-#diagram > div {
+.target-zone {
     position: absolute;
     /*background-color: red;*/
     display: flex;
@@ -85,75 +90,158 @@ header {
 
 
 /* Labels Area */
-#labels {
-    grid-column: 1/-1;
+#label-con {
     display: grid;
-    row-gap: 10px;
-    width: 248px;
-    min-height: 300px;
+    grid-column: 1/-1;
+    grid-template-columns: auto auto auto;
+    align-items: end;
+    gap: 20px;
+    width: 350px;
     order: -1;
-    text-align: center;
     padding: 10px;
     border: 2px solid black;
 }
 
-#labels h3 {
-    grid-column: 1/-1;
+#label-con h3 {
+    grid-column: 1/2;
+    grid-row: 1/1;
     order: -1;
     margin: 0;
+}
+
+#labels {
+    grid-column: 1/-1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#labels .label-title {
+    margin: 5px;
+}
+
+#labels .label-title:hover {
+    transform: translateY(-2px);
 }
 
 .label-title {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 84px;
     max-height: 42px;
     background-color: rgb(0, 128, 255);
+    border-radius: 5px;
     padding: 5px;
     font-size: 20px;
+    text-align: center;
     color: white;
-    border: 2px solid white;
-    cursor: pointer;
+    cursor: grab;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    transition: 0.2s background-color linear;
+    transition: 0.2s transform linear;
 }
 
 .label-title:hover {
     background-color: rgb(0, 102, 204);
 }
 
+.target-zone .label-title {
+    border-radius: 0;
+    border: 2px solid white;
+}
+
+
 
 button {
     grid-column: 1/-1;
     border: none;
+    padding: 5px;
+    margin: 0 10px;
     border-radius: 5px;
-    width: 200px;
-    font-size: 20px;
-    max-height: 50px;
-    margin: 10px auto 0;
-    background-color: rgb(255, 148, 0);
     color: white;
+    font-size: 20px;
+    text-align: center;
     text-transform: uppercase;
     cursor: pointer;
     order: 10;
+    transition: 0.2s background-color linear;
 }
 
-button:hover {
+#reset-btn {
+    background-color: rgb(255, 148, 0);
+}
+
+#reset-btn:hover {
     background-color: rgb(215, 125, 0);
 }
 
+#submit-btn {
+    background-color: rgb(60, 215, 0);
+}
+
+#submit-btn:hover {
+    background-color: rgb(20, 170, 0);
+}
+
+
 /* Responsive */
+@media screen and (max-width: 768px) {
+    .small-btn {
+        justify-self: end;
+        grid-column: 3/4;
+        background-color: transparent;
+        font-size: 16px;
+        margin: 0;
+        order: 0;
+    }
+
+    #reset-btn.small-btn {
+        color: rgb(255, 148, 0);
+        background-color: transparent;
+    }
+
+    #reset-btn.small-btn:hover {
+        background-color: transparent;
+    }
+}
+
 @media screen and (min-width: 768px) {
     #diagram {
         grid-column: 1/2;
         grid-row: 1/-1;
     }
 
-    #labels {
+    #label-con {
+        align-content: start;
+        width: 220px;
         grid-column: 2/3;
         grid-row: 1/-1;
-        padding-bottom: 70%;
     }
 
+    #label-con h3 {
+        grid-column: 1/-1;
+        text-align: center;
+    }
+
+    #labels .label-title {
+        height: 28px;
+        width: 100%;
+    }
+
+    button {
+        width: 80%;
+        padding: 5px 10px;
+        margin:  0 auto;
+    }
+
+    #reset-btn {
+        grid-row: 4;
+    }
+
+    #submit-btn {
+        grid-row: 3; 
+    }
 }

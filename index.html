@@ -9,30 +9,35 @@
 </head>
 <body>
     <header class="centered">
-        <h1>Human Anatomy Quiz</h1> 
-        <p>Drag the labels to the correct organs</p> 
+        <h1 id="title">Human Anatomy Quiz</h1> 
+        <p id="inst">Can you match the labels to the proper body parts?</p> 
     </header>
 
-    <section id="game" class="centered">
-        <h2 class="hidden">Quiz Area</h2>
+    <main id="game" class="centered">
+        <h2 class="hidden">Drag these labels to the correct body parts:</h2>
         <div id="diagram">
             <img src="images/body.png" alt="A diagram of the human body with organs to be named">
-            <div id="heart"></div>
-            <div id="lung"></div>
-            <div id="liver"></div>
-            <div id="stomach"></div>
-            <div id="intestines"></div>
+            <div id="heart" class="target-zone"></div>
+            <div id="lung" class="target-zone"></div>
+            <div id="liver" class="target-zone"></div>
+            <div id="stomach" class="target-zone"></div>
+            <div id="intestines" class="target-zone"></div>
         </div>
-        <section id="labels" class="centered">
+        <section id="label-con" class="centered">
             <h3>Labels</h3>
-            <div draggable="true" class="label-title">Heart</div>
-            <div draggable="true" class="label-title">Lung</div>
-            <div draggable="true" class="label-title">Liver</div>
-            <div draggable="true" class="label-title">Stomach</div>
-            <div draggable="true" class="label-title">Intestines</div>
-            <button id="reset-btn">Reset</button>
+            <button id="reset-btn" class="small-btn">Reset</button>             
+
+            <div id="labels">
+                <div draggable="true" class="label-title">Heart</div>
+                <div draggable="true" class="label-title">Lung</div>
+                <div draggable="true" class="label-title">Liver</div>
+                <div draggable="true" class="label-title">Stomach</div>
+                <div draggable="true" class="label-title">Intestines</div>
+            </div>
+
+             <button id="submit-btn" class="hidden">Submit</button>   
         </section>
-    </section>
+    </main>
     
     
     <script src="js/main.js"></script>
