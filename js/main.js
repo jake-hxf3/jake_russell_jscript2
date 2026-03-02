@@ -24,8 +24,16 @@ function dragOver(e) {
     e.preventDefault();
 }
 
-function appendDrag() {
+function appendDrag(e) {
+    e.preventDefault();  
+
+    //prevents double drops if there is already a label
+    if(this.firstElementChild) {
+        return;
+    }
+   
     this.appendChild(dragItem);
+    console.log("dropped");
 }
 
 // resets game: puts the elements back to start
