@@ -28,11 +28,17 @@ function appendDrag() {
     this.appendChild(dragItem);
 }
 
+// resets game: puts the elements back to start
+// reverts all style changes
 function resetLabels() {
-    const diagLabel = document.querySelectorAll("#diagram .label-title");
-    console.log(labelZone);
-    diagLabel.forEach((elem) => {
-        labelZone.appendChild(elem);
+    console.log("reset button clicked");
+    this.classList.add("small-btn");
+
+    dropZone.forEach((elem) => {
+        let zoneLabel = elem.firstElementChild;
+        if (zoneLabel) {
+            labelZone.appendChild(zoneLabel);            
+        }
     })
 }
 
