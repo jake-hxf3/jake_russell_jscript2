@@ -21,14 +21,19 @@ function visibleDrag() {
 }
 
 function dragOver(e) {
-    let itemNumber = this.childElementCount;
-    if (itemNumber == 0) {
-        e.preventDefault();
-    }
+    e.preventDefault();
 }
 
 function appendDrag() {
+    e.preventDefault();  
+
+    //prevents double drops if there is already a label
+    if(this.firstElementChild) {
+        return;
+    }
+   
     this.appendChild(dragItem);
+    console.log("dropped");
 }
 
 // Event Listener
