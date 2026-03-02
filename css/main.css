@@ -26,6 +26,18 @@ body {
     border: 2px solid white;
 }
 
+.win-text {
+    animation: flashing 2s infinite;
+}
+
+@keyframes flashing {
+  0%   {color: green;}
+  25%  {color: dodgerblue;}
+  50%  {color: green;}
+  75%  {color: dodgerblue;}
+  100%  {color: green;}
+}
+
 /* Header & Game Area */
 header {
     max-width: 900px;
@@ -248,4 +260,5 @@ button {
     #submit-btn {
         grid-row: 3; 
     }
+
 }
